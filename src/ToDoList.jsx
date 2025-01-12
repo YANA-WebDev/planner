@@ -34,18 +34,16 @@ function ToDoList() {
     const interval = setInterval(() => {
       updateTimers();
     }, 1000);
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="main-container">
       <img src="./images/logo.png" alt="logo" className="main-logo" />
-      <AddTask setTasks={setTasks}/>
-     <div className="section-1"> 
-      <ItemsList tasks={tasks} setTasks={setTasks} setSelectedTaskIndex={setSelectedTaskIndex} setShowTimerModal={setShowTimerModal}/>
-      <NavigationMenu/>
-    </div>
-    <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks}/>
+      <AddTask setTasks={setTasks} />
+      <ItemsList tasks={tasks} setTasks={setTasks} setSelectedTaskIndex={setSelectedTaskIndex} setShowTimerModal={setShowTimerModal} />
+      <NavigationMenu />
+      <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks} />
     </div>
   );
 }

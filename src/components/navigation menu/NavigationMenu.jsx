@@ -6,9 +6,10 @@ import "./NavigationMenu.css";
 const NavigationMenu = () => {
   return (
     <div className="navigation-menu">
-      <IoSettingsOutline className="navigation-icon" />
       <IoMusicalNotesOutline className="navigation-icon"/>
       <CgNotes className="navigation-icon"/>
+      <IoSettingsOutline className="navigation-icon" />
+
     </div>
   )
 }

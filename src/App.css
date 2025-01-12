@@ -11,6 +11,8 @@
   background-image: url(/public/images/lightblue-gradient-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -39,8 +41,4 @@ input[type="checkbox"] {
 .main-logo {
   width: 15%;
   margin: 1% 0 0 1%;
-}
-.section-1 {
-  display: flex;
-  
 }
