@@ -3,6 +3,7 @@ import "./App.css";
 import AddTask from "./components/addTaskComponent/AddTask";
 import ItemsList from "./components/itemsListComponComponents/ItemsList";
 import TimerModalComponent from "./components/timerModalComponent/TimerModalComponent";
+import NavigationMenu from "./components/navigation menu/NavigationMenu";
 
 function ToDoList() {
   const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
@@ -40,8 +41,11 @@ function ToDoList() {
     <div className="main-container">
       <img src="./images/logo.png" alt="logo" className="main-logo" />
       <AddTask setTasks={setTasks}/>
+     <div className="section-1"> 
       <ItemsList tasks={tasks} setTasks={setTasks} setSelectedTaskIndex={setSelectedTaskIndex} setShowTimerModal={setShowTimerModal}/>
-      <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks}/>
+      <NavigationMenu/>
+    </div>
+    <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks}/>
     </div>
   );
 }

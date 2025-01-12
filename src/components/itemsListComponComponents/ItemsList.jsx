@@ -18,7 +18,7 @@ const ItemsList = ({ tasks, setTasks, setSelectedTaskIndex,setShowTimerModal}) =
         setShowTimerModal(true);
       }
   return (
-    <div>
+    <div className="items-list">
        <ol>
         {tasks.map((task, index) => (
           <li key={index} className="task-item">
