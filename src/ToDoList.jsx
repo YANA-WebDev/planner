@@ -38,7 +38,7 @@ function ToDoList() {
 
   return (
     <div className="main-container">
-      <h1>MY TO DO:</h1>
+      <img src="./images/logo.png" alt="logo" className="main-logo" />
       <AddTask setTasks={setTasks}/>
       <ItemsList tasks={tasks} setTasks={setTasks} setSelectedTaskIndex={setSelectedTaskIndex} setShowTimerModal={setShowTimerModal}/>
       <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks}/>
