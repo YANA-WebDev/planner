@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Input } from "antd";
 import "./AddTask.css";
 
+
 const AddTask = ({setTasks}) => {
     const [newTask, setNewTask] = useState("");
     

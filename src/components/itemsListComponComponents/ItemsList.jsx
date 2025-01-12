@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 import './ItemsList.css'
+import { MdDeleteOutline } from "react-icons/md";
+import { FaRegClock } from "react-icons/fa";
+
 
 const ItemsList = ({ tasks, setTasks, setSelectedTaskIndex,setShowTimerModal}) => {
     function deleteTask(index) {
@@ -30,21 +33,19 @@ const ItemsList = ({ tasks, setTasks, setSelectedTaskIndex,setShowTimerModal}) =
             <span className={task.done ? "text task-done" : "text"}>
               {task.text}
             </span>
-            <div>
+            <div className="timer-container">
               <button
                 className="timer-button"
                 onClick={() => openTimerModal(index)}
               >
-                ⏱ Set Timer
+                <FaRegClock className="timer-icon"/> Set Timer
               </button>
               <span className="timer">
                 {Math.floor(task.timer / 60)}:{task.timer % 60 < 10 ? "0" : ""}
                 {task.timer % 60}
               </span>
             </div>
-            <button className="delete-button" onClick={() => deleteTask(index)}>
-              Delete
-            </button>
+            <MdDeleteOutline className="delete-button" onClick={() => deleteTask(index)}/>
           </li>
         ))}
       </ol>

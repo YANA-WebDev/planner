@@ -13,18 +13,22 @@
 
   .add-button {
     font-size: 2rem;
-    background-color: whitesmoke;
-    color: lightslategray;
     width: 10%;
     height: 100%;
     font-weight: bold;
     padding: 1% 0%;
-    border: 0.5px solid lightslategray;
+    border: 1px solid #3e44ff;
+    color: #3e44ff;
+    background-color: white;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.5s ease;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .add-button:hover {
-    background-color: rgba(125, 153, 180, 0.365);
-    color: whitesmoke;
+    box-shadow: 0 0 10px #3e44ff;
+    color: white;
+    background-color: #3e44ff;
   }
