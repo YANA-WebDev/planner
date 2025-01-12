@@ -25,6 +25,7 @@ const AddTask = ({setTasks}) => {
         placeholder="Enter a task..."
         value={newTask}
         onChange={handleInputChange}
+        onPressEnter={addTask}
       />
       <button className="add-button" onClick={addTask}>
         New
