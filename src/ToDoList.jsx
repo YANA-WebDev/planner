@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import AddTask from "./components/AddTaskComponents/AddTask";
+import AddTask from "./components/addTaskComponent/AddTask";
+import ItemsList from "./components/itemsListComponComponents/ItemsList";
 
 function ToDoList() {
   const [tasks, setTasks] = useState([]);
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
   const [timerMinutes, setTimerMinutes] = useState("");
-
-  function deleteTask(index) {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
-  }
-
-  function toggleDone(index) {
-    const updatedTasks = [...tasks];
-    updatedTasks[index].done = !updatedTasks[index].done; // Toggle the "done" state
-    setTasks(updatedTasks);
-  }
-
-  function openTimerModal(index) {
-    setSelectedTaskIndex(index);
-    setShowTimerModal(true);
-  }
 
   function setTimerAndStart() {
     if (timerMinutes && selectedTaskIndex !== null) {
@@ -57,36 +42,8 @@ function ToDoList() {
     <div className="main-container">
       <h1>MY TO DO:</h1>
       <AddTask setTasks={setTasks}/>
-      <ol>
-        {tasks.map((task, index) => (
-          <li key={index} className="task-item">
-            <input
-              type="checkbox"
-              checked={task.done}
-              onChange={() => toggleDone(index)}
-            />
-            <span className={task.done ? "text task-done" : "text"}>
-              {task.text}
-            </span>
-            <div>
-              <button
-                className="timer-button"
-                onClick={() => openTimerModal(index)}
-              >
-                ⏱ Set Timer
-              </button>
-              <span className="timer">
-                {Math.floor(task.timer / 60)}:{task.timer % 60 < 10 ? "0" : ""}
-                {task.timer % 60}
-              </span>
-            </div>
-            <button className="delete-button" onClick={() => deleteTask(index)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ol>
-
+      <ItemsList tasks={tasks} setTasks={setTasks} setSelectedTaskIndex={setSelectedTaskIndex} setShowTimerModal={setShowTimerModal}/>
+     
       {/* Timer Modal */}
       {showTimerModal && (
         <div className="modal">
