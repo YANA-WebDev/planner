@@ -68,7 +68,7 @@ function ToDoList() {
   }, [tasks]);
 
   return (
-    <div className="pö.">
+    <div className="main-container">
       <h1>MY TO DO:</h1>
 
       <div>
