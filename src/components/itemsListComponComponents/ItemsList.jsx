@@ -1,4 +1,5 @@
 import React from 'react'
+import './ItemsList.css'
 
 const ItemsList = ({ tasks, setTasks, setSelectedTaskIndex,setShowTimerModal}) => {
     function deleteTask(index) {

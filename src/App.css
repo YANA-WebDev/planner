@@ -27,74 +27,7 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.413);
 }
 
-.delete-button {
-  background-color: hsl(10, 90%, 50%);
-  font-size: 1.7rem;
-  font-weight: bold;
-  padding: 10px 20px;
-  color: white;
-  border: 0.5px solid lightslategray;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-}
-.delete-button:hover {
-  background-color: hsl(10, 90%, 40%);
-}
-.move-button {
-  background-color: hsl(207, 90%, 64%);
-}
-.move-button:hover {
-  background-color: hsl(207, 90%, 54%);
-}
 
-ol {
-  padding: 0;
-}
-li {
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 20px;
-  background-color: hsl(0, 0%, 97%);
-  margin-bottom: 10px;
-  border: 3px solid rgba(165, 170, 174, 0.304);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-}
-.text {
-  flex: 1;
-}
-.task-item {
-  display: flex;
-  text-align: left;
-  padding: 5px, 10px;;
-  gap: 10px;
-  margin-bottom: 10px;
-  margin: 25px;
-}
-.task-item input[type="checkbox"] {
-  cursor: pointer;
-}
-.timer-button {
-  background-color: #3e44ff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 18px;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-.timer-button:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 3, 3);
-}
-.timer {
-  margin: 15px;
-  font-size: 25px;
-  color: #555;
-}
 .modal {
   position: fixed;
   top: 0;
