@@ -1,0 +1,178 @@
+body {
+  background-image: url(/public/images/lightblue-gradient-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.to-do-list {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 4rem;
+  color: white;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.413);
+}
+button {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: white;
+  border: 0.5px solid lightslategray;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+.add-button {
+  font-size: 2rem;
+  background-color: whitesmoke;
+  color: lightslategray;
+  border-radius: 10px;
+  margin: 30px;
+}
+.add-button:hover {
+  background-color: rgba(125, 153, 180, 0.365);
+  color: whitesmoke;
+}
+.delete-button {
+  background-color: hsl(10, 90%, 50%);
+}
+.delete-button:hover {
+  background-color: hsl(10, 90%, 40%);
+}
+.move-button {
+  background-color: hsl(207, 90%, 64%);
+}
+.move-button:hover {
+  background-color: hsl(207, 90%, 54%);
+}
+input {
+    width: 400px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    padding: 0 15px;
+    outline: none;
+    font-size: 18px;
+    color: #4a4a4a; 
+    background: #f9f9f9; 
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.384),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+  
+}
+ol {
+  padding: 0;
+}
+li {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 20px;
+  background-color: hsl(0, 0%, 97%);
+  margin-bottom: 10px;
+  border: 3px solid rgba(165, 170, 174, 0.304);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.text {
+  flex: 1;
+}
+.task-item {
+  display: flex;
+  text-align: left;
+  padding: 5px, 10px;;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin: 25px;
+}
+.task-item input[type="checkbox"] {
+  cursor: pointer;
+}
+.timer-button {
+  background-color: #3e44ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+.timer-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 3, 3);
+}
+.timer {
+  margin: 15px;
+  font-size: 25px;
+  color: #555;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+}
+
+.modal-content input {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.modal-buttons button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #1d4bc0;
+  color: white;
+}
+
+.modal-buttons button:first-child:hover {
+  background-color: #1d4bc0cb;
+  box-shadow:  0 0 10px rgba(0, 0, 3, 3);
+}
+
+.modal-buttons button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.modal-buttons button:last-child:hover {
+  background-color: #d32f2f;
+  box-shadow:  0 0 10px rgba(0, 0, 3, 3);
+}
+input[type="checkbox"] {
+  width: 25px; 
+  height: 25px; 
+  transform: scale(1.5); 
+  cursor: pointer; 
+  margin-right: 15px;
+}
+
