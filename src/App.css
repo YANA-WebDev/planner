@@ -13,18 +13,6 @@
   background-repeat: no-repeat;
 }
 
-.input-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1%;
-  height: 6vh;
-}
-
-.to-do-input {
-  height: 100%;
-  width: 40%;
-}
 
 .to-do-list {
   font-family: Arial, sans-serif;
@@ -38,23 +26,7 @@ h1 {
   text-align: left;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.413);
 }
-.add-button {
-  font-size: 2rem;
-  background-color: whitesmoke;
-  color: lightslategray;
-  width: 10%;
-  height: 100%;
-  font-weight: bold;
-  padding: 1% 0%;
-  border: 0.5px solid lightslategray;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-}
-.add-button:hover {
-  background-color: rgba(125, 153, 180, 0.365);
-  color: whitesmoke;
-}
+
 .delete-button {
   background-color: hsl(10, 90%, 50%);
   font-size: 1.7rem;
@@ -75,20 +47,7 @@ h1 {
 .move-button:hover {
   background-color: hsl(207, 90%, 54%);
 }
-input {
-    width: 400px;
-    height: 50px;
-    border: none;
-    border-radius: 8px;
-    padding: 0 15px;
-    outline: none;
-    font-size: 18px;
-    color: #4a4a4a; 
-    background: #f9f9f9; 
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.384),
-                inset -2px -2px 5px rgba(255, 255, 255, 0.7);
-  
-}
+
 ol {
   padding: 0;
 }

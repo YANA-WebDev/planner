@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import AddTask from "./components/AddTask";
+import AddTask from "./components/AddTaskComponents/AddTask";
 
 function ToDoList() {
   const [tasks, setTasks] = useState([]);
