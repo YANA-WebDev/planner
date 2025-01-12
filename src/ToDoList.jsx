@@ -1,27 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Input } from "antd";
+import AddTask from "./components/AddTask";
 
 function ToDoList() {
   const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
   const [timerMinutes, setTimerMinutes] = useState("");
-
-  function handleInputChange(event) {
-    setNewTask(event.target.value);
-  }
-
-  function addTask() {
-    if (newTask.trim() !== "") {
-      setTasks((t) => [
-        ...t,
-        { text: newTask, timer: 0, isRunning: false, done: false },
-      ]);
-      setNewTask("");
-    }
-  }
 
   function deleteTask(index) {
     const updatedTasks = tasks.filter((_, i) => i !== index);
@@ -71,13 +56,7 @@ function ToDoList() {
   return (
     <div className="main-container">
       <h1>MY TO DO:</h1>
-
-      <div className="input-container">
-        <Input className="to-do-input" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}/>
-        <button className="add-button" onClick={addTask}>
-          New
-        </button>
-      </div>
+      <AddTask setTasks={setTasks}/>
       <ol>
         {tasks.map((task, index) => (
           <li key={index} className="task-item">
