@@ -12,6 +12,20 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1%;
+  height: 6vh;
+}
+
+.to-do-input {
+  height: 100%;
+  width: 40%;
+}
+
 .to-do-list {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -24,7 +38,25 @@ h1 {
   text-align: left;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.413);
 }
-button {
+.add-button {
+  font-size: 2rem;
+  background-color: whitesmoke;
+  color: lightslategray;
+  width: 10%;
+  height: 100%;
+  font-weight: bold;
+  padding: 1% 0%;
+  border: 0.5px solid lightslategray;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+.add-button:hover {
+  background-color: rgba(125, 153, 180, 0.365);
+  color: whitesmoke;
+}
+.delete-button {
+  background-color: hsl(10, 90%, 50%);
   font-size: 1.7rem;
   font-weight: bold;
   padding: 10px 20px;
@@ -33,20 +65,6 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.5s ease;
-}
-.add-button {
-  font-size: 2rem;
-  background-color: whitesmoke;
-  color: lightslategray;
-  border-radius: 10px;
-  margin: 30px;
-}
-.add-button:hover {
-  background-color: rgba(125, 153, 180, 0.365);
-  color: whitesmoke;
-}
-.delete-button {
-  background-color: hsl(10, 90%, 50%);
 }
 .delete-button:hover {
   background-color: hsl(10, 90%, 40%);

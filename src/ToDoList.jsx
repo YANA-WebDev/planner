@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import { Input } from "antd";
 
 function ToDoList() {
   const [tasks, setTasks] = useState([]);
@@ -71,13 +72,8 @@ function ToDoList() {
     <div className="main-container">
       <h1>MY TO DO:</h1>
 
-      <div>
-        <input
-          type="text"
-          placeholder="Enter a task..."
-          value={newTask}
-          onChange={handleInputChange}
-        />
+      <div className="input-container">
+        <Input className="to-do-input" placeholder="Enter a task..." value={newTask} onChange={handleInputChange}/>
         <button className="add-button" onClick={addTask}>
           New
         </button>
