@@ -5,7 +5,7 @@ import ItemsList from "./components/itemsListComponComponents/ItemsList";
 import TimerModalComponent from "./components/timerModalComponent/TimerModalComponent";
 
 function ToDoList() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
   const [timerMinutes, setTimerMinutes] = useState("");
@@ -13,20 +13,28 @@ function ToDoList() {
   function updateTimers() {
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
-        if (task.isRunning && task.timer > 0) {
+        if (task.isRunning && task.timer > 1) {
           return { ...task, timer: task.timer - 1 };
+        }
+        if (task.isRunning && task.timer == 1) {
+          alert("Time's up! For task: " + task.text);
+          return { ...task, timer: task.timer - 1, isRunning: false };
         }
         return task;
       })
     );
+    setTasks((currentTasks) => {
+      localStorage.setItem("tasks", JSON.stringify(currentTasks));
+      return currentTasks;
+    });
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
       updateTimers();
-    }, 1000); // Update every second
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [tasks]);
+    }, 1000);
+    return () => clearInterval(interval); 
+  }, []);
 
   return (
     <div className="main-container">
