@@ -1,0 +1,10 @@
+CREATE USER 'yas'@'%' IDENTIFIED BY 'azav2022';
+
+GRANT ALL PRIVILEGES ON *.* TO 'yas'@'%' WITH GRANT OPTION;
+
+mysql -u yas -p
+
+CREATE DATABASE planmanager;
+
+
+GRANT ALL PRIVILEGES ON planmanager.* TO 'yas'@'%' WITH GRANT OPTION;

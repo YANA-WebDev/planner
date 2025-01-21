@@ -5,11 +5,14 @@ import ItemsList from "./components/itemsListComponComponents/ItemsList";
 import TimerModalComponent from "./components/timerModalComponent/TimerModalComponent";
 import NavigationMenu from "./components/navigation menu/NavigationMenu";
 
+  
 function ToDoList() {
   const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
   const [timerMinutes, setTimerMinutes] = useState("");
+ 
+  
 
   function updateTimers() {
     setTasks((prevTasks) =>
@@ -43,7 +46,8 @@ function ToDoList() {
       <AddTask setTasks={setTasks} />
       <ItemsList tasks={tasks} setTasks={setTasks} setSelectedTaskIndex={setSelectedTaskIndex} setShowTimerModal={setShowTimerModal} />
       <NavigationMenu />
-      <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks} />
+      <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks}  
+      />
     </div>
   );
 }

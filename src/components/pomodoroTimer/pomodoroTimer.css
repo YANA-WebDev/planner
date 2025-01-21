@@ -1,0 +1,60 @@
+.timer-container {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .tabs button.active {
+    border-bottom: 2px solid white;
+  }
+  
+  .timer-display {
+    font-size: 48px;
+    margin: 20px 0;
+  }
+  
+  .start-button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .status-text {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .task-section {
+    margin-top: 20px;
+  }
+  
+  .add-task {
+    background: none;
+    border: 1px dashed white;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }

@@ -2,16 +2,16 @@ import React from 'react'
 import './TimerModalComponent.css'
 
 const TimerModalComponent = ({showTimerModal,timerMinutes, setTasks, setShowTimerModal, setTimerMinutes, selectedTaskIndex, tasks}) => {
-    function setTimerAndStart() {
-        if (timerMinutes && selectedTaskIndex !== null) {
-          const updatedTasks = [...tasks];
-          updatedTasks[selectedTaskIndex].timer = parseInt(timerMinutes) * 60; // Convert minutes to seconds
-          updatedTasks[selectedTaskIndex].isRunning = true; // Start timer
-          setTasks(updatedTasks);
-        }
-        setShowTimerModal(false); // Close the modal
-        setTimerMinutes(""); // Reset input
+  function setTimerAndStart() {
+      if (timerMinutes && selectedTaskIndex !== null) {
+        const updatedTasks = [...tasks];
+        updatedTasks[selectedTaskIndex].timer = parseInt(timerMinutes) * 60; 
+        updatedTasks[selectedTaskIndex].isRunning = true;
+        setTasks(updatedTasks);
       }
+      setShowTimerModal(false); 
+      setTimerMinutes(""); 
+  }
   return (
     <div>
       {showTimerModal && (
