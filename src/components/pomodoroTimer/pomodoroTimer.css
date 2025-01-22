@@ -1,60 +1,81 @@
-.timer-container {
-    width: 300px;
-    padding: 20px;
-    border-radius: 10px;
+.pomodoro-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
   }
   
-  .tabs {
+  .mode-switcher {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
   }
   
-  .tabs button {
-    background: none;
+  .mode-switcher button {
+    padding: 8px 16px;
     border: none;
-    color: white;
-    padding: 5px 10px;
+    border-radius: 20px;
+    background: #f0f0f0;
+    color: #666;
     cursor: pointer;
-    font-size: 16px;
+    transition: all 0.3s ease;
   }
   
-  .tabs button.active {
-    border-bottom: 2px solid white;
+  .mode-switcher button.active {
+    background: #4CAF50;
+    color: white;
   }
   
   .timer-display {
-    font-size: 48px;
-    margin: 20px 0;
+    font-size: 6rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 2rem 0;
+    font-family: 'Roboto Mono', monospace;
   }
   
-  .start-button {
-    background: white;
-    color: black;
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .control-button {
+    padding: 12px 24px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 25px;
+    font-size: 1.1rem;
     cursor: pointer;
-    font-size: 18px;
+    transition: all 0.3s ease;
   }
   
-  .status-text {
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  
-  .task-section {
-    margin-top: 20px;
-  }
-  
-  .add-task {
-    background: none;
-    border: 1px dashed white;
+  .control-button:first-child {
+    background: #4CAF50;
     color: white;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
   }
+  
+  .control-button:last-child {
+    background: #f44336;
+    color: white;
+  }
+  
+  .control-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 480px) {
+    .timer-display {
+      font-size: 4rem;
+    }
+    
+    .pomodoro-container {
+      margin: 1rem;
+      padding: 1rem;
+    }
+  }
+  

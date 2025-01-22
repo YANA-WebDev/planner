@@ -35,4 +35,4 @@ const TimerModalComponent = ({showTimerModal,timerMinutes, setTasks, setShowTime
   )
 }
 
-export default TimerModalComponent
+export default TimerModalComponent;

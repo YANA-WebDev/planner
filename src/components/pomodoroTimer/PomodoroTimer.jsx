@@ -1,54 +1,94 @@
-import React, { useState } from 'react';
-import './pomodoroTimer.css';
+import { useState, useEffect } from 'react';
+import './PomodoroTimer.css';
 
-const PomodoroTimer = ({ mode, time, bgColor }) => {
-    const [secondsLeft, setSecondsLeft] = useState(time * 60);
-    const [isRunning, setIsRunning] = useState(false);
-  
-    const toggleTimer = () => {
-      setIsRunning(!isRunning);
-    };
-  
-    React.useEffect(() => {
-      if (!isRunning) return;
-  
-      const timer = setInterval(() => {
-        setSecondsLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            return 0;
+const PomodoroTimer = () => {
+  const [minutes, setMinutes] = useState(25);
+  const [seconds, setSeconds] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+  const [mode, setMode] = useState('work'); // work, shortBreak, longBreak
+
+  useEffect(() => {
+    let interval;
+
+    if (isActive) {
+      interval = setInterval(() => {
+        if (seconds === 0) {
+          if (minutes === 0) {
+            // Timer completed
+            setIsActive(false);
+            // Play notification sound
+            new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg').play();
+          } else {
+            setMinutes(minutes - 1);
+            setSeconds(59);
           }
-          return prev - 1;
-        });
+        } else {
+          setSeconds(seconds - 1);
+        }
       }, 1000);
-  
-      return () => clearInterval(timer);
-    }, [isRunning]);
-  
-    const formatTime = (seconds) => {
-      const mins = Math.floor(seconds / 60);
-      const secs = seconds % 60;
-      return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-    };
-  
-    return (
-      <div className="timer-container" style={{ backgroundColor: bgColor }}>
-        <div className="tabs">
-          <button className={mode === 'Pomodoro' ? 'active' : ''}>Pomodoro</button>
-          <button className={mode === 'Short Break' ? 'active' : ''}>Short Break</button>
-          <button className={mode === 'Long Break' ? 'active' : ''}>Long Break</button>
-        </div>
-        <div className="timer-display">{formatTime(secondsLeft)}</div>
-        <button className="start-button" onClick={toggleTimer}>
-          {isRunning ? 'PAUSE' : 'START'}
-        </button>
-        <p className="status-text">{mode === 'Pomodoro' ? 'Time to focus!' : 'Time for a break!'}</p>
-        <div className="task-section">
-          <h3>Tasks</h3>
-          <button className="add-task">+ Add Task</button>
-        </div>
-      </div>
-    );
+    }
+
+    return () => clearInterval(interval);
+  }, [isActive, minutes, seconds]);
+
+  const toggleTimer = () => {
+    setIsActive(!isActive);
   };
-  
-  export default PomodoroTimer;
+
+  const resetTimer = () => {
+    setIsActive(false);
+    if (mode === 'work') setMinutes(25);
+    if (mode === 'shortBreak') setMinutes(5);
+    if (mode === 'longBreak') setMinutes(20);
+    setSeconds(0);
+  };
+
+  const switchMode = (newMode) => {
+    setMode(newMode);
+    setIsActive(false);
+    if (newMode === 'work') setMinutes(25);
+    if (newMode === 'shortBreak') setMinutes(5);
+    if (newMode === 'longBreak') setMinutes(15);
+    setSeconds(0);
+  };
+
+  return (
+    <div className="pomodoro-container">
+      <div className="mode-switcher">
+        <button 
+          className={mode === 'work' ? 'active' : ''} 
+          onClick={() => switchMode('work')}
+        >
+          Work
+        </button>
+        <button 
+          className={mode === 'shortBreak' ? 'active' : ''} 
+          onClick={() => switchMode('shortBreak')}
+        >
+          Short Break
+        </button>
+        <button 
+          className={mode === 'longBreak' ? 'active' : ''} 
+          onClick={() => switchMode('longBreak')}
+        >
+          Long Break
+        </button>
+      </div>
+      
+      <div className="timer-display">
+        {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+      </div>
+      
+      <div className="controls">
+        <button className="control-button" onClick={toggleTimer}>
+          {isActive ? 'Pause' : 'Start'}
+        </button>
+        <button className="control-button" onClick={resetTimer}>
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default PomodoroTimer;
