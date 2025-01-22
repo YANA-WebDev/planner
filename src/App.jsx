@@ -8,10 +8,9 @@ import './App.css';
 function App() {
   return (
  <>
+  <img src="./public/images/logo.png" alt="logo" className="main-logo" />
   <SignUp/>
-  <PomodoroTimer mode="Pomodoro" time={1} bgColor="#FF6B6B"/>
-  <PomodoroTimer mode="Short Break" time={1} bgColor="#FF6B6B"/>
-  <PomodoroTimer mode="Long Break" time={1} bgColor="#FF6B6B"/>
+  <PomodoroTimer mode="Pomodoro" time={1} />
   <TimerModalComponent/>
   <ToDoList/>
  </>

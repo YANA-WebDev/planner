@@ -5,7 +5,7 @@ const PomodoroTimer = () => {
   const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const [mode, setMode] = useState('work'); // work, shortBreak, longBreak
+  const [mode, setMode] = useState('work'); //All together//
 
   useEffect(() => {
     let interval;
@@ -14,7 +14,6 @@ const PomodoroTimer = () => {
       interval = setInterval(() => {
         if (seconds === 0) {
           if (minutes === 0) {
-            // Timer completed
             setIsActive(false);
             // Play notification sound
             new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg').play();
@@ -48,7 +47,7 @@ const PomodoroTimer = () => {
     setIsActive(false);
     if (newMode === 'work') setMinutes(25);
     if (newMode === 'shortBreak') setMinutes(5);
-    if (newMode === 'longBreak') setMinutes(15);
+    if (newMode === 'longBreak') setMinutes(20);
     setSeconds(0);
   };
 

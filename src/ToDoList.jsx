@@ -43,7 +43,6 @@ function ToDoList() {
 
   return (
     <div className="main-container">
-      <img src="./images/doit.png" alt="logo" className="main-logo" />
       <AddTask setTasks={setTasks} />
       <ItemsList
         tasks={tasks}
