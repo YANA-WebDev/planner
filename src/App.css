@@ -13,7 +13,6 @@
   flex-direction: column;
 }
 
-
 .to-do-list {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -29,10 +28,10 @@ h1 {
 }
 
 input[type="checkbox"] {
-  width: 25px; 
-  height: 25px; 
-  transform: scale(1.5); 
-  cursor: pointer; 
+  width: 25px;
+  height: 25px;
+  transform: scale(1.5);
+  cursor: pointer;
   margin-right: 15px;
 }
 

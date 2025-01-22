@@ -5,14 +5,15 @@ import ItemsList from "./components/itemsListComponComponents/ItemsList";
 import TimerModalComponent from "./components/timerModalComponent/TimerModalComponent";
 import NavigationMenu from "./components/navigation menu/NavigationMenu";
 
-  
 function ToDoList() {
-  const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
+  const [tasks, setTasks] = useState(
+    localStorage.getItem("tasks")
+      ? JSON.parse(localStorage.getItem("tasks"))
+      : []
+  );
   const [showTimerModal, setShowTimerModal] = useState(false);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
   const [timerMinutes, setTimerMinutes] = useState("");
- 
-  
 
   function updateTimers() {
     setTasks((prevTasks) =>
@@ -44,9 +45,21 @@ function ToDoList() {
     <div className="main-container">
       <img src="./images/logo.png" alt="logo" className="main-logo" />
       <AddTask setTasks={setTasks} />
-      <ItemsList tasks={tasks} setTasks={setTasks} setSelectedTaskIndex={setSelectedTaskIndex} setShowTimerModal={setShowTimerModal} />
+      <ItemsList
+        tasks={tasks}
+        setTasks={setTasks}
+        setSelectedTaskIndex={setSelectedTaskIndex}
+        setShowTimerModal={setShowTimerModal}
+      />
       <NavigationMenu />
-      <TimerModalComponent showTimerModal={showTimerModal} timerMinutes={timerMinutes} setTasks={setTasks} setShowTimerModal={setShowTimerModal} setTimerMinutes={setTimerMinutes} selectedTaskIndex={selectedTaskIndex} tasks={tasks}  
+      <TimerModalComponent
+        showTimerModal={showTimerModal}
+        timerMinutes={timerMinutes}
+        setTasks={setTasks}
+        setShowTimerModal={setShowTimerModal}
+        setTimerMinutes={setTimerMinutes}
+        selectedTaskIndex={selectedTaskIndex}
+        tasks={tasks}
       />
     </div>
   );
