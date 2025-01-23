@@ -12,7 +12,7 @@ const ItemsList = ({ tasks, setTasks, setSelectedTaskIndex,setShowTimerModal}) =
     
       function toggleDone(index) {
         const updatedTasks = [...tasks];
-        updatedTasks[index].done = !updatedTasks[index].done; // Toggle the "done" state
+        updatedTasks[index].done = !updatedTasks[index].done; 
         setTasks(updatedTasks);
       }
     

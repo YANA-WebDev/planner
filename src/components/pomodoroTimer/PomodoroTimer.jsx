@@ -5,7 +5,41 @@ const PomodoroTimer = () => {
   const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const [mode, setMode] = useState('work'); //All together//
+  const [mode, setMode] = useState('work');
+  const [cycleCount, setCycleCount] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const [modalButton, setModalButton] = useState('');
+
+  const playTickSound = () => {
+    new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg').play();
+  };
+
+  const handleCycleCompletion = () => {
+    if (mode === 'work') {
+      if (cycleCount === 2) {
+        setModalMessage('Час зробити довгу паузу і розслабитись');
+        setModalButton('Почати довгу паузу');
+        setMode('longBreak');
+      } else {
+        setModalMessage('Час зробити паузу ☕️');
+        setModalButton('Почати паузу');
+        setMode('shortBreak');
+      }
+    } else if (mode === 'shortBreak') {
+      setModalMessage('Час продовжити роботу');
+      setModalButton('Продовжити роботу');
+      setMode('work');
+      setCycleCount(prev => prev + 1);
+    } else if (mode === 'longBreak') {
+      setModalMessage('Час зосередитись і продовжити роботу');
+      setModalButton('Почати роботу');
+      setMode('work');
+      setCycleCount(0);
+    }
+    setShowModal(true);
+    setIsActive(false);
+  };
 
   useEffect(() => {
     let interval;
@@ -14,14 +48,15 @@ const PomodoroTimer = () => {
       interval = setInterval(() => {
         if (seconds === 0) {
           if (minutes === 0) {
-            setIsActive(false);
-            // Play notification sound
-            new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg').play();
+            handleCycleCompletion();
           } else {
             setMinutes(minutes - 1);
             setSeconds(59);
           }
         } else {
+          if (minutes === 0 && seconds <= 5) {
+            playTickSound();
+          }
           setSeconds(seconds - 1);
         }
       }, 1000);
@@ -29,6 +64,19 @@ const PomodoroTimer = () => {
 
     return () => clearInterval(interval);
   }, [isActive, minutes, seconds]);
+
+  const startNextPhase = () => {
+    setShowModal(false);
+    if (mode === 'work') {
+      setMinutes(25);
+    } else if (mode === 'shortBreak') {
+      setMinutes(5);
+    } else if (mode === 'longBreak') {
+      setMinutes(20);
+    }
+    setSeconds(0);
+    setIsActive(true);
+  };
 
   const toggleTimer = () => {
     setIsActive(!isActive);
@@ -39,15 +87,6 @@ const PomodoroTimer = () => {
     if (mode === 'work') setMinutes(25);
     if (mode === 'shortBreak') setMinutes(5);
     if (mode === 'longBreak') setMinutes(20);
-    setSeconds(0);
-  };
-
-  const switchMode = (newMode) => {
-    setMode(newMode);
-    setIsActive(false);
-    if (newMode === 'work') setMinutes(25);
-    if (newMode === 'shortBreak') setMinutes(5);
-    if (newMode === 'longBreak') setMinutes(20);
     setSeconds(0);
   };
 
@@ -86,6 +125,15 @@ const PomodoroTimer = () => {
           Reset
         </button>
       </div>
+
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>{modalMessage}</p>
+            <button onClick={startNextPhase}>{modalButton}</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
