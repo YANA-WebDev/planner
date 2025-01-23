@@ -1,66 +1,139 @@
 .items-list {
   width: 95%;
-
+  margin: 0 auto;
 }
+
 .task-item {
-    display: flex;
-    text-align: left;
-    padding: 5px 25px;
-    gap: 10px;
-    margin: 25px;
-    border: 1px solid black;
-    background-color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    border-radius: 10px;
-    align-items: center;
-  }
-  .task-item input[type="checkbox"] {
-    cursor: pointer;
-  }
-  ol {
-    padding: 0;
-  }
+  display: flex;
+  text-align: left;
+  padding: 5px 25px;
+  gap: 10px;
+  margin: 25px;
+  border: 1px solid black;
+  background-color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-  .text {
-    flex: 1;
-  }
-  .timer-button {
-    color: white;
-    background-color: #3e44ff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: 0.3s ease;
-  }
-  .timer-button:hover {
-    box-shadow: 0 0 10px #3e44ff;
-  }
-  .timer {
+.task-item input[type="checkbox"] {
+  cursor: pointer;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+ol {
+  padding: 0;
+  width: 100%;
+}
+
+.text {
+  flex: 1;
+  word-break: break-word;
+}
+
+.timer-button {
+  color: white;
+  background-color: #3e44ff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.timer-button:hover {
+  box-shadow: 0 0 10px #3e44ff;
+}
+
+.timer {
+  margin: 15px;
+  font-size: 25px;
+  color: #555;
+}
+
+.delete-button {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  transition: 0.3s ease;
+}
+
+.delete-button:hover {
+  transform: scale(1.1);
+  color: red;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .task-item {
+    padding: 5px 15px;
     margin: 15px;
-    font-size: 25px;
-    color: #555;
-  }
-  .delete-button {
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    transition:  0.3s ease;
-  }
-  .delete-button:hover {
-    transform: scale(1.1);
-    color: red;
+    font-size: 1.5rem;
   }
 
-  .timer-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  .timer-button {
+    padding: 8px 12px;
+    font-size: 16px;
   }
+
+  .timer {
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  .delete-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .items-list {
+    width: 100%;
+  }
+
+  .task-item {
+    padding: 5px 10px;
+    margin: 10px;
+    font-size: 1.2rem;
+    gap: 5px;
+  }
+
+  .timer-button {
+    padding: 6px 10px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .timer {
+    font-size: 18px;
+    margin: 8px;
+  }
+
+  .delete-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .timer-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
