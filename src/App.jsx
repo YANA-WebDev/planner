@@ -13,6 +13,7 @@ function App() {
   <PomodoroTimer mode="Pomodoro" time={1} />
   <TimerModalComponent/>
   <ToDoList/>
+  
  </>
 )
   

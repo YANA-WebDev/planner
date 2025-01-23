@@ -5,20 +5,12 @@ import { CgNotes } from "react-icons/cg";
 import "./NavigationMenu.css";
 
 const NavigationMenu = () => {
-  const [isMusicMenuOpen, setIsMusicMenuOpen] = useState(false);
   const [isSettingsMenuOpen, setIsSettingsMenuOpen] = useState(false);
   const [currentSound, setCurrentSound] = useState(null);
   const [pomodoroTime, setPomodoroTime] = useState(25);
   const [shortBreakTime, setShortBreakTime] = useState(5);
-  const [longBreakTime, setLongBreakTime] = useState(15);
+  const [longBreakTime, setLongBreakTime] = useState(20);
   const [theme, setTheme] = useState("white");
-
-  const sounds = [
-    { name: "Rain", url: "https://example.com/rain.mp3" },
-    { name: "Forest", url: "https://example.com/forest.mp3" },
-    { name: "Waves", url: "https://example.com/waves.mp3" },
-    { name: "Fireplace", url: "https://example.com/fireplace.mp3" },
-  ];
 
   const toggleMusicMenu = () => {
     setIsMusicMenuOpen(!isMusicMenuOpen);
@@ -49,8 +41,8 @@ const NavigationMenu = () => {
 
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
-    document.body.className = ""; // Reset current theme
-    document.body.classList.add(newTheme); // Apply new theme
+    document.body.className = ""; 
+    document.body.classList.add(newTheme); 
   };
 
   return (
@@ -65,25 +57,6 @@ const NavigationMenu = () => {
         className="navigation-icon"
         onClick={toggleSettingsMenu}
       />
-
-      {isMusicMenuOpen && (
-        <div className="music-menu">
-          <h3>Choose a Sound</h3>
-          {sounds.map((sound) => (
-            <button
-              key={sound.name}
-              className="music-button"
-              onClick={() => playSound(sound.url)}
-            >
-              {sound.name}
-            </button>
-          ))}
-          <button className="music-button stop-button" onClick={stopSound}>
-            Stop Music
-          </button>
-        </div>
-      )}
-
       {isSettingsMenuOpen && (
         <div className="settings-menu">
           <h3>Settings</h3>
@@ -128,7 +101,7 @@ const NavigationMenu = () => {
                 className="original-theme"
                 onClick={() => changeTheme("original")}
               >
-                Colorful
+                Original
               </button>
               <button
                 className="theme-button colorful"
@@ -140,7 +113,7 @@ const NavigationMenu = () => {
                 className="theme-button warm-dark"
                 onClick={() => changeTheme("warm-dark")}
               >
-                Warm Dark
+                Chocolate
               </button>
               <button
                 className="theme-button black-purple"

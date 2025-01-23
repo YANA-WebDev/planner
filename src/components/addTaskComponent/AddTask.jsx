@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Input } from "antd";
 import "./AddTask.css";
 
-
-const AddTask = ({setTasks}) => {
-    const [newTask, setNewTask] = useState("");
-    
+const AddTask = ({ setTasks }) => {
+  const [newTask, setNewTask] = useState("");
+  
   function handleInputChange(event) {
     setNewTask(event.target.value);
   }
@@ -13,12 +12,13 @@ const AddTask = ({setTasks}) => {
   function addTask() {
     if (newTask.trim() !== "") {
       setTasks((t) => [
-        ...t,
         { text: newTask, timer: 0, isRunning: false, done: false },
+        ...t,
       ]);
       setNewTask("");
     }
   }
+
   return (
     <div className="input-container">
       <Input
@@ -27,9 +27,14 @@ const AddTask = ({setTasks}) => {
         value={newTask}
         onChange={handleInputChange}
         onPressEnter={addTask}
+        style={{ cursor: 'grab' }}
       />
-      <button className="add-button" onClick={addTask}>
-        New
+      <button 
+        className="add-button" 
+        onClick={addTask}
+        style={{ cursor: 'grab' }}
+      >
+        Add
       </button>
     </div>
   );
