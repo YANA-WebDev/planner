@@ -6,7 +6,6 @@ import "./NavigationMenu.css";
 
 const NavigationMenu = () => {
   const [isSettingsMenuOpen, setIsSettingsMenuOpen] = useState(false);
-  const [currentSound, setCurrentSound] = useState(null);
   const [pomodoroTime, setPomodoroTime] = useState(25);
   const [shortBreakTime, setShortBreakTime] = useState(5);
   const [longBreakTime, setLongBreakTime] = useState(20);
@@ -20,23 +19,6 @@ const NavigationMenu = () => {
   const toggleSettingsMenu = () => {
     setIsSettingsMenuOpen(!isSettingsMenuOpen);
     setIsMusicMenuOpen(false);
-  };
-
-  const playSound = (soundUrl) => {
-    if (currentSound) {
-      currentSound.pause();
-    }
-    const audio = new Audio(soundUrl);
-    audio.loop = true;
-    audio.play();
-    setCurrentSound(audio);
-  };
-
-  const stopSound = () => {
-    if (currentSound) {
-      currentSound.pause();
-      setCurrentSound(null);
-    }
   };
 
   const changeTheme = (newTheme) => {

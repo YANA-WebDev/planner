@@ -21,11 +21,11 @@ const PomodoroTimer = () => {
     if (mode === "work") {
       if (cycleCount === 2) {
         setModalMessage("Time to take a long break and relax! 🚶‍♂️");
-        setModalButton("Start a long break");
+        setModalButton("Start");
         setMode("longBreak");
       } else {
         setModalMessage("Time to take a break ☕️");
-        setModalButton("Start a short break");
+        setModalButton("Start");
         setMode("shortBreak");
       }
     } else if (mode === "shortBreak") {
