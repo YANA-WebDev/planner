@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
  <>
-  <img src="./public/images/logo.png" alt="logo" className="main-logo" />
+  <img src="./public/images/doit-watch-logo.png" alt="logo" className="main-logo" />
   <SignUp/>
   <PomodoroTimer mode="Pomodoro" time={1} />
   <TimerModalComponent/>
