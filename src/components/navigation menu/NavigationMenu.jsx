@@ -1,24 +1,28 @@
 import React, { useState } from "react";
-import { IoSettingsOutline } from "react-icons/io5";
-import { IoMusicalNotesOutline } from "react-icons/io5";
+import { IoSettingsOutline, IoMusicalNotesOutline } from "react-icons/io5";
 import { CgNotes } from "react-icons/cg";
 import "./NavigationMenu.css";
 
 const NavigationMenu = () => {
   const [isSettingsMenuOpen, setIsSettingsMenuOpen] = useState(false);
+  const [currentSound, setCurrentSound] = useState(null);
   const [pomodoroTime, setPomodoroTime] = useState(25);
   const [shortBreakTime, setShortBreakTime] = useState(5);
   const [longBreakTime, setLongBreakTime] = useState(20);
   const [theme, setTheme] = useState("white");
 
-  const toggleMusicMenu = () => {
-    setIsMusicMenuOpen(!isMusicMenuOpen);
-    setIsSettingsMenuOpen(false);
-  };
-
   const toggleSettingsMenu = () => {
     setIsSettingsMenuOpen(!isSettingsMenuOpen);
-    setIsMusicMenuOpen(false);
+  };
+
+  const playMusic = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/music/jazz');
+      const data = await response.json();
+      window.open(data.url, 'https://www.youtube.com/watch?v=CfPxlb8-ZQ0'); 
+    } catch (error) {
+      console.error("Error fetching music URL:", error);
+    }
   };
 
   const changeTheme = (newTheme) => {
@@ -31,10 +35,9 @@ const NavigationMenu = () => {
     <div className="navigation-menu">
       <IoMusicalNotesOutline
         className="navigation-icon"
-        onClick={toggleMusicMenu}
+        onClick={playMusic}
       />
       <CgNotes className="navigation-icon" />
-
       <IoSettingsOutline
         className="navigation-icon"
         onClick={toggleSettingsMenu}
