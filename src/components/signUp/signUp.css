@@ -1,15 +1,15 @@
 body {
-    margin: 0; 
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #60a3e1, #f2a9d8);
-    min-height: 100vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box; 
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #60a3e1, #f2a9d8);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 .signup-container {
-  margin-bottom: 20px;
+  margin: 25%;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -17,22 +17,12 @@ body {
 }
 
 .signup-box {
-  background-image:linear-gradient(#259AD8,#FFCCFF);
+  background-image: linear-gradient(#259ad8, #ffccff);
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 350px;
 }
-
-.logo {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.logo-o {
-    color: #4980ed; 
-}
-
 
 .form-container {
   text-align: center;
@@ -75,7 +65,6 @@ body {
 }
 
 .google-signup {
-  
   background: none;
   border: none;
   cursor: pointer;
@@ -102,7 +91,7 @@ body {
 }
 .signin-button {
   position: fixed;
-  top: 20px;
+  top: 30px;
   right: 20px;
   padding: 10px 20px;
   background-color: #007bff;

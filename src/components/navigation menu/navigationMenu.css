@@ -5,11 +5,23 @@
   gap: 50px;
   align-items: center;
   right: 1%;
-  top: 16%;
+  top: 27%;
   border-radius: 50px;
   padding: 25px 10px;
   border: 1px solid black;
-  
+}
+.settings-menu {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  right: 30%;
+  border-radius: 50px;
+  padding: 30px 25px;
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: rgba(245, 245, 245, 0.906);
 }
 
 .navigation-icon {
@@ -28,20 +40,20 @@
   transform: scale(0.9);
 }
 .original {
-  background-image:linear-gradient(#259AD8, #FFCCFF,);
+  background-image: linear-gradient(#259ad8, #ffccff);
 }
 .colorful {
   background: linear-gradient(45deg, #00e1fd, #fc007a, #ff2525);
 }
 
 .warm-dark {
-  background:  linear-gradient(45deg, #2d1e17, #523f31, #796254); 
+  background: linear-gradient(45deg, #2d1e17, #523f31, #796254);
   color: #9d8a7c;
 }
 
 .black-purple {
   background: black;
-  color: purple; 
+  color: purple;
 }
 .green {
   background: linear-gradient(45deg, #012b04, #40a534, #40a534);
@@ -77,7 +89,7 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   cursor: pointer;
   font-size: 1rem;
@@ -86,4 +98,33 @@
 
 .modal-content button:hover {
   background-color: #45a049;
+}
+@media screen and (max-width: 768px) {
+  .navigation-menu {
+    position: fixed;
+    flex-direction: row;
+    top: 2%;
+    right: 50%;
+    transform: translateX(50%);
+    gap: 20px;
+    padding: 10px 20px;
+    z-index: 100;
+  }
+
+  .navigation-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation-menu {
+    gap: 15px;
+    padding: 8px 15px;
+  }
+
+  .navigation-icon {
+    width: 35px;
+    height: 35px;
+  }
 }

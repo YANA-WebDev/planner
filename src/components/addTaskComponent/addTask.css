@@ -4,6 +4,7 @@
   justify-content: center;
   gap: 1%;
   height: 6vh;
+  margin-top: -7vh;
 }
 
 .to-do-input {

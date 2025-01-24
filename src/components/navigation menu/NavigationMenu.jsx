@@ -41,8 +41,8 @@ const NavigationMenu = () => {
 
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
-    document.body.className = ""; 
-    document.body.classList.add(newTheme); 
+    document.body.className = "";
+    document.body.classList.add(newTheme);
   };
 
   return (
@@ -97,7 +97,7 @@ const NavigationMenu = () => {
           <div className="setting-item">
             <label>Theme:</label>
             <div className="theme-options">
-            <button
+              <button
                 className="original-theme"
                 onClick={() => changeTheme("original")}
               >

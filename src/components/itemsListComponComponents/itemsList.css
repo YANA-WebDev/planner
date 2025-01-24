@@ -78,8 +78,6 @@ ol {
   gap: 10px;
   flex-wrap: wrap;
 }
-
-/* Responsive Design */
 @media screen and (max-width: 768px) {
   .task-item {
     padding: 5px 15px;
